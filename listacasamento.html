@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Language" content="pt-br" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!--meta http-equiv="refresh" content="60" -->
+    <title>Caroline 🌞 Rodolfo</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2285%22>🌙</text></svg>" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div style="position: fixed; top: 0px; min-width: 90%; background-color: white; z-index: 1;">
+        <div class="col-4">
+          <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">C & R</button>
+            <ul class="dropdown-menu"aria-labelledby="dropdownMenu2">
+              <li><a class="dropdown-item" href="index.html" type="button">Home</a></li>
+              <li><a class="dropdown-item" href="listacasamento.html" type="button">Presentes</a></li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top: 2em;text-align: center;">        
+          <h1 style="font-family: Courier New;">PRESENTES VIRTUAIS</h1>
+        </div>
+      </div>
+      
+      <div class="row d-flex justify-content-center" style="margin-top: 5em;" id="Produtos"></div>
+    </div>
+    
+  </body>
+  <script>
+    let listaProdutos = [
+      {
+        imagem: "KIT COZINHA.jpg",
+        cardTitle: "Kit Cozinha Philco PKT35P Turbo <br>R$ 329,90</br>",
+        cardText: "Kit Cozinha Batedeira + Liquidificador + Espremedor Philco PKT35P Turbo",
+        button: "https://pag.ae/7YYbJCyut",
+      },
+      {
+        imagem: "ASSADEIRA.jpg",
+        cardTitle: "Conjunto 3 Formas Fundo Removível Antiaderente <br>R$42,90</br>",
+        cardText: "Fundo removível Antiaderente",
+        button: "https://pag.ae/7YYpM18cG",
+      },
+
+      {
+        imagem: "CONJUNTO 6 XICARAS COM PIRES.jpg",
+        cardTitle: "Conjunto com 6 Xícaras de Cafezinho <br>R$80,58</br>",
+        cardText: "Cerâmica Pires com 12 cm 65 ml",
+        button: "https://pag.ae/7YZtScbHL",
+      },
+      {
+        imagem: "APARELHO DE JANTAR.jpg",
+        cardTitle: "Aparelho de Jantar, Chá e Sobremesa 20 Peças Oxford Daily Luiza em Cerâmica<br>R$229,90</br>",
+        cardText: "Aparelho de Jantar, Chá e Sobremesa",
+        button: "https://pag.ae/7YYbVtMS2",
+      },
+      {
+        imagem: "APARELHO DE JANTAR VERDE.jpg",
+        cardTitle: "Aparelho de Jantar Chá 20 Peças Biona Cerâmica <br>R$159,90</br>",
+        cardText: "Prato raso: 24 cm <br> Prato fundo: 21 cm <br> Prato de sobremesa: 18 cm <br> Pires de chá: 14 cm",
+        button: "https://pag.ae/7YZtU4B17",
+      },
+      {
+        imagem: "COPOS VIDRO.jpg",
+        cardTitle: "Jogo de Copos de Vidro 300ml 6 Peças <br>R$29,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYpG4A-t",
+      },
+
+      {
+        imagem: "VENTILDOR TETOedit.jpg",
+        cardTitle: "Ventilador De Teto 3 Pás 220V Wind Light Preto/Mogno Ventisol <br>R$164,34</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYpDNXX1",
+      },
+      {
+        imagem: "VENTILADOR.edit.jpg",
+        cardTitle: "Ventilador de Mesa Mondial, 110V, 30cm, 6 pás, Super Power - VSP-30-B <br>R$85,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYpCNC2L",
+      },
+      {
+        imagem: "SAPATEIRAedit.jpg",
+        cardTitle: "Sapateira Safira 2 Portas - Chocolate <br>R$164,00</br>",
+        cardText: "Sapateira Safira 2 Portas <br> 2 portas Com porta articulável, puxadores modernos e um design único faz da Sapateira Safira um móvel sofisticado.",
+        button: "https://pag.ae/7YZtVxgNL",
+      },
+      {
+        imagem: "KIT CABIDEIRO.jpg",
+        cardTitle: "Kit 2x Cabideiro de Parede - Prateleira Arara para Roupas <br>R$74,99</br>",
+        cardText: "Kit 2x Cabideiro de Parede <br>Prateleira Arara para Roupas <br>60 cm de comprimento <br>12 cm de altura <br>25 cm de profundidade",
+        button: "https://pag.ae/7YYpDNXX1",
+      },
+      {
+        imagem: "ESCORREDORedit.jpg",
+        cardTitle: "Escorredor De Louça Arco Cromado Pequeno Madefer Inox <br>R$49,99</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYpycVYP",
+      },
+      {
+        imagem: "FONDUE.jpg",
+        cardTitle: "Kit Panela Fondue 10 Peças Marrom Chocolate Queijo Aparelho <br>R$121,89</br>",
+        cardText: "Cor chocolate <br>Possui separador de garfos <br>Cabo longo",
+        button: "https://pag.ae/7YYpw_8CL",
+      },
+      {
+        imagem: "PANELA DE PRESSAO.jpg",
+        cardTitle: "Panela de Pressão Fechamento Externo 4,5L Cereja Panelux <br>R$149,99</br>",
+        cardText: "A Panela de Pressão Fechamento Externo 4,5L <br>Cereja Panelux oferece toda qualidade para preparar deliciosos alimentos com a rapidez que você precisa.",
+        button: "https://pag.ae/7YYpw2nB1",
+      },
+      {
+        imagem: "PANELA ELETRICAedit.jpg",
+        cardTitle: "Panela Elétrica De Arroz Britânia Pa5x Br 5 Xícaras <br>R$136,17</br>",
+        cardText: "Com a Panela Elétrica de Arroz Pa1 da Britânia seu arroz estará sempre saboroso e fresquinho",
+        button: "https://pag.ae/7YYpv8VhN",
+      },
+      {
+        imagem: "CREPEIRA.jpg",
+        cardTitle: "Máquina De Fazer Crepes Crepeira E Hotdog Británia 110v <br>R$173,83</br>",
+        cardText: "Crepeira 110v britania faz crepe e hotdog faz até 6 unidades de uma só vez com a crepeira britânia six você pode preparar até seis crepes de uma só vez.",
+        button: "https://pag.ae/7YYptGxg5",
+      },
+      {
+        imagem: "SANDUIICHEIRA.jpg",
+        cardTitle: "Sanduicheira Mondial Fast Grill e Sandwich S-12 SANDUICHEIRA-127V-PRETO <br>R$97,99</br>",
+        cardText: "2 em 1: Eficiente e versátil, pode ser usado como grill e sanduicheira, mais praticidade durante o preparo de carnes, frangos, peixes, sanduiches e vegetais",
+        button: "https://pag.ae/7YYpsHdjq",
+      },
+      {
+        imagem: "TANQUINHO.jpg",
+        cardTitle: "Tanquinho Semiautomático COLORMAQ LCS16 16Kg Branco 220V <br>R$569,00</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYpr_TB7",
+      },
+      {
+        imagem: "MAQUINA DE LAVAR 9 KGedit.jpg",
+        cardTitle: "Lavadora de Roupas Consul 9kg 15 Programas de - Lavagem Branca CWB09BB <br>R$1.595,05</br>",
+        cardText: "1 Lavadora de Roupas, 1 Copo dosador",
+        button: "https://pag.ae/7YYpp8tpq",
+      },
+      {
+        imagem: "5 POTES DE VIDROedit.jpg",
+        cardTitle: "5 Potes de Vidro Facilita Quadrado 300ml Marinex <br>R$93,90</br>",
+        cardText: "5 unidades Pote De Vidro Quadrado Com Tampa 300ml Marinex",
+        button: "https://pag.ae/7YYpnxmzs",
+      },
+      {
+        imagem: "CONJUNTOS DE TIGELAS.jpg",
+        cardTitle: "Conjunto De Tigelas Marinex Plus Em Vidro Com Tampa Cinza – 3 Peças <br>R$99,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYpmo5jq",
+      },
+      {
+        imagem: "CONJUNTO DE TRAVESSA.jpg",
+        cardTitle: "Conjunto de Travessas Refratarias 3 Peças Oxford Bake - Branco <br>R$129,99</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYpkoEr7",
+      },
+      {
+        imagem: "TOALHA DE MESA POST VARIADA.jpg",
+        cardTitle: "Guardanapos De Tecido Mesa Posta 20 Un Oxford Várias Cores <br>R$29,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYpjxG2L",
+      },
+      {
+        imagem: "TOALHA DE BANHO 5 PÇS.jpg",
+        cardTitle: "Jogo De Banho 5pçs Buddemeyer Oxford Azul <br>R$149,99</br>",
+        cardText: "100% algodão",
+        button: "https://pag.ae/7YZu39Sw5",
+      },
+      {
+        imagem: "COJUNTO DE MESA DE JANTARedit.jpg",
+        cardTitle: "Conjunto Sala de Jantar Mesa Tampo MDF/Vidro e 4 Cadeiras Espanha Yescasa Preto <br>R$897,25</br>",
+        cardText: "1 Mesa, 4 Cadeiras, 1 Manual de Montagem e 1 Kit Ferragens",
+        button: "https://pag.ae/7YYph82G8",
+      },
+      {
+        imagem: "SOFÁedit.jpg",
+        cardTitle: "Sofá Retrátil/Reclinável Verona 1,80m Suede Velut Azul Marinho c/ Molas no Assento <br>R$1.259,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYpf-c4m",
+      },
+      {
+        imagem: "KITUTENSILIOS.jpg",
+        cardTitle: "Kit Utensílios de Silicone para Cozinha - 13 peças - Verde Água <br>R$149,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYndu_zs",
+      },
+      
+      {
+        imagem: "PASSADEIRACOZINHAedit.jpg",
+        cardTitle: "Passadeira Para Cozinha 130x40 Homer Simpson Duff <br>R$92,33</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYn9jpr1",
+      },
+      {
+        imagem: "TAPETESALAedit.jpg",
+        cardTitle: "Tapete Sala Wevans Geometrico Colorido Único <br>R$109,90</br>",
+        cardText: "Tapete 90x125cm",
+        button: "https://pag.ae/7YYn7MM2G",
+      },
+      {
+        imagem: "ESTANTEMULTIUSO.jpg",
+        cardTitle: "Estante Multiuso Com 3 Andares <br>R$59,32</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYn6koS8",
+      },
+      {
+        imagem: "RELOGIOPAREDE.JPG",
+        cardTitle: "Relógio de Parede Geek Blackboard - 30 cm <br>R$69,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYn52ANJ",
+      },
+      {
+        imagem: "KITBANCADABANHEIRO.jpg",
+        cardTitle: "kit de banheiro lavabo saboneteira/porta escova/difusor/Granilite Decoração<br>R$67,00</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYn46PCN",
+      },
+      {
+        imagem: "CORTINA.jpg",
+        cardTitle: "Cortina Voil Creme/Palha Forro 3,00 X 2,50 Para Varão<br>R$96,53</br>",
+        cardText: "Cortina Voil Creme/Palha Forro 3,00 X 2,50",
+        button: "https://pag.ae/7YZughxS5",
+      },
+      {
+        imagem: "OLHOGREGO.jpg",
+        cardTitle: "Olho Grego Com Mão De Fátima Enfeite De Porta<br>R$39,00</br>",
+        cardText: "",
+        button: "https://pag.ae/7YZunDpjs",
+      },
+      {
+        imagem: "JOGO DE BANHEIRO OLHO GREGO.jpg",
+        cardTitle: "Jogo de Banheiro Olho Grego<br>R$119,50</br>",
+        cardText: "Base feltro antiderrapante<br>Parte superior em pelúcia<br>Detalhes em bordado",
+        button: "https://pag.ae/7YZupSrS8",
+      },
+      {
+        imagem: "MESINHADECENTROedit.jpg",
+        cardTitle: "Mesinha Mesa De Centro Redonda Retrô Pés Palito<br>R$78,99R$85,90</br>",
+        cardText: "50cm P-sala Preta - Móveis",
+        button: "https://pag.ae/7YYmPM1Km",
+      },
+      {
+        imagem: "CRIADOMUDOedit.jpg",
+        cardTitle: "Mesa Lateral/Cabeceira 1 Gaveta Native e Base Metal <br>R$126,35</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYmNnG7G",
+      },
+      {
+        imagem: "PAINELTVedit.jpg",
+        cardTitle: "Painel Sala Compact Para Tv <br>R$156,39</br>",
+        cardText: "Painel Sala Compact para TV até 50 Polegadas Off White/Naturalle/Ripado",
+        button: "https://pag.ae/7YYmLo7cP",
+      },
+      {
+        imagem: "KITJOGOAMERICANOedit.jpg",
+        cardTitle: "Kit 4 Jogo Americano Mesa Posta Impermeável Luxo Retangular<br>R$49,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYmJkpnJ",
+      },
+      {
+        imagem: "CAPACHOFRIENDS.jpg",
+        cardTitle: "Tapete Decorativo - Welcome Friends<br>R$59,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYmDwHM7",
+      },
+      {
+        imagem: "CAPACHOSUPERBEMVINDO.jpg",
+        cardTitle: "Tapete Decorativo - Super Bem vindo<br>R$59,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYmCSb11",
+      },
+      {
+        imagem: "CAPACHOCHAVES.jpg",
+        cardTitle: "Tapete Decorativo - Já chegou o disco Voador<br>R$59,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYmBR1M3",
+      },
+      {
+        imagem: "CAPACHOedit.jpg",
+        cardTitle: "Tapete Capacho Sinta-se Em Casa 60x40<br>R$46,16</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYmB1JB3",
+      },
+      {
+        imagem: "POTES COM TAMPA 8 PÇS.jpg",
+        cardTitle: "Jogo de Potes de Plástico Hermético Electrolux - com Tampa Quadrado 8 Peças<br>R$78,30</br>",
+        cardText: "230ml, 470ml, 500ml, 600ml, 800ml, 1,18L, 1,4L, 1,71L",
+        button: "https://pag.ae/7YYdY_2NG",
+      },
+      
+      {
+        imagem: "LASANHEIRA.jpg",
+        cardTitle: "Lasanheira de Vidro Retangular 3,7L - Marinex<br>R$39,90</br>",
+        cardText: "Pode ser levado ao forno <br>Pode ser levado ao freezer <br>Pode ser levado ao micro-ondas <br>Pode ser levado à geladeira <br>Pode ser levado à lava-louça",
+        button: "https://pag.ae/7YYdVq3jt",
+      },
+      {
+        imagem: "CONJUNTO 3 POTES.jpg",
+        cardTitle: "Conjunto com 3 Potes, Sistema Lock, Azul Claro, Casambiente<br>R$93,17</br>",
+        cardText: "Conjunto com 3 Potes, Sistema Lock, Azul Claro",
+        button: "https://pag.ae/7YYdSCx67",
+      },
+      {
+        imagem: "MARINEX.jpg",
+        cardTitle: "Jogo de Assadeiras de Vidro Marinex Celebrity - 4 Peças<br>R$97,90</br>",
+        cardText: "1 Assadeira oval <br> 1 Assadeira quadrada <br> 1 Assadeira retangular <br> 1 Terrina redonda <br> 1 Tampa terrina",
+        button: "https://pag.ae/7YYdRtWTP",
+      },
+      {
+        imagem: "VARAL DE FOTOS.jpg",
+        cardTitle: "Quadro de fotos varal madeira 40x55cm &+ 10 pregadores<br>R$128,00</br>",
+        cardText: "Quadro de fotos varal madeira 40x55cm <br> Tamanho: 40cm x 55 cm (Horizontal) <br>Material: Madeira de Eucalipto perfil 3,0cm x 2,0cm pintado à mão.",
+        button: "https://pag.ae/7YYdPcPb3",
+      },
+      {
+        imagem: "QUADRO FOTOSS.jpg",
+        cardTitle: "Painel Multifotos para 4 Fotos 29,5x29,5cm Branco<br>R$69,99</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYdMfP-o",
+      },
+      {
+        imagem: "QUADRO DE FOTOS.jpg",
+        cardTitle: "Quadro Foto montagem personalizada – 9 fotos<br>R$29,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYdKMe9t",
+      },
+      {
+        imagem: "CANECA VEGETA.jpg",
+        cardTitle: "Caneca 3D Vegeta: Dragon Ball Z<br>R$69,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYdH-TNP",
+      },
+      {
+        imagem: "CANECA THE BIG BANG.jpg",
+        cardTitle: "Caneca The Big Bang Theory &+ Saquinho<br>R$39,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYdwM4et",
+      },
+      {
+        imagem: "ALMOFADAS DRAGON BALL.jpg",
+        cardTitle: "Kit 04 Capa De Almofada Desenho Goku Dragon Ball<br>R$68,50</br>",
+        cardText: "Altura: 5.00 cm<br>Largura: 40.00 cm<br>Comprimento: 40.00 cm<br>Peso: 500 g",
+        button: "https://pag.ae/7YYdvYFet",
+      },
+      {
+        imagem: "ALMOFADAS FRIENDS.jpg",
+        cardTitle: "Kit 4 Capas de Almofada Decorativas Friends<br>R$59,90</br>",
+        cardText:
+          "Tecido: Oxford 100% Poliéster<br>Estampa: Frente e Verso <br>Ziper: Invisivel<br>Tamanho: 45x45cm<br>A estamparia em alta definição aplicada traz o diferencial e a exclusividade ao produto.",
+        button: "https://pag.ae/7YYduYS67",
+      },
+      {
+        imagem: "QUADRO.jpg",
+        cardTitle: "Quadros Decorativos Mosaico MDF Leão Colorido 115x60<br>R$39,00</br>",
+        cardText: "Kit 5 Quadros Decorativos Mosaicos Material: Quadros Decorativos produzido em MDF",
+        button: "https://pag.ae/7YYdtnZpo",
+      },
+      {
+        imagem: "PUFF.jpg",
+        cardTitle: "Puff Fofão Preto<br>R$120,44</br>",
+        cardText: "Confeccionado Em revestimento sintético De Alta Resistência, Com Costura Tripla E Cheio Com Flocos De Isopor",
+        button: "https://pag.ae/7YYdrDbum",
+      },
+      {
+        imagem: "ESPELHO.jpg",
+        cardTitle: "Espelho Redondo com Material Ecológico 60cm Diametro Caramelo<br>R$123,17</br>",
+        cardText: "Diâmetro: 60cm<br>Altura Total: 90cm",
+        button: "https://pag.ae/7YYdqqtS7",
+      },
+      {
+        imagem: "TV.jpg",
+        cardTitle: "Smart TV LED 50&#34; 4K HQ Conversor Digital Externo 3 HDMI 2 USB WI-FI Android 11 Design Slim<br>R$1.979,00</br>",
+        cardText: "A Smart TV HQ HQSTV50NY oferece imagens 4K, com resolução Ultra HD e cores de tirar o fôlego.",
+        button: "https://pag.ae/7YYdn8hCJ",
+      },
+      {
+        imagem: "MICROONDAS.jpg",
+        cardTitle: "Micro-ondas Panasonic NN-ST66LBRUN - 110V, 32L, Preto<br>R$639,00</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYdkSCHN",
+      },
+      {
+        imagem: "JOGO DE PANELA.jpg",
+        cardTitle: "Conjunto de Panelas 7 Peças Tramontina Bergamo com Panela de Pressão e Revestimento Antiaderente<br>R$559,90</br>",
+        cardText:
+          "Composto por caçarola, panelas, frigideira, panquequeira, assadeira e panela de pressão de 4,5L feitas em alumínio e com revestimento interno e externo em antiaderente Starflon Max na cor azul",
+        button: "https://pag.ae/7YYdh23Qt",
+      },
+      {
+        imagem: "GELADEIRA.jpg",
+        cardTitle: "Refrigerador Philco 437 Litros Side By Side Eco Inverter Inox<br>R$3.900,00</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYdfJQB8",
+      },
+      {
+        imagem: "SALADEIRA.jpg",
+        cardTitle: "Kit 3 Saladeiras Redondas Bowl Vidro Vira 310ml Vitrizi<br>R$39,00</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYcVLrS8",
+      },
+      {
+        imagem: "CONJUNTOS DE TAÇAS.jpg",
+        cardTitle: "Jogo De Taças De Água Barone 6 Peças<br>R$60,00</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYcSM4cH",
+      },
+      {
+        imagem: "KIT PETISQUEIRA.jpg",
+        cardTitle: "Conjunto Kit Petisqueira Madeira &+ 4 Facas De Queijo<br>R$45,00</br>",
+        cardText: "Tabua de Frios Petisqueira 23x23cm com 04 cavidades &+ 04 Facas p/ cortar Queijo",
+        button: "https://pag.ae/7YYcLfjr8",
+      },
+      {
+        imagem: "KIT PARA VINHO.jpg",
+        cardTitle: "Kit Vinho Abridor Saca Rolhas Tampa Dosador Livro 05 Peças<br>R$38,00</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYcJzcb7",
+      },
+      {
+        imagem: "8121jcjxWaL._AC_SY741_.jpg",
+        cardTitle: "Faqueiro Inox Malibu, 24pc , Tramontina, Inox<br>R$65,36</br>",
+        cardText: "Um faqueiro totalmente produzido em aço inox que oferece durabilidade e resistência",
+        button: "https://pag.ae/7YYbZBi9o",
+      },
+      {
+        imagem: "BALDE. DE GELO.jpg",
+        cardTitle: "Balde De Gelo Médio 6,5 Litros<br>R$30,00</br>",
+        cardText: "Alumínio 100% nacional, resistente e durável.",
+        button: "https://pag.ae/7YYdwM4et",
+      },
+      {
+        imagem: "ABAJUR.jpg",
+        cardTitle: "Abajur Sala Quarto Luminária De Mesa Industrial Retro <br>R$66,90</br>",
+        cardText: "",
+        button: "https://pag.ae/7YYnbBCxG",
+      },
+      {
+        imagem: "PURIFCADORDEAR.jpg",
+        cardTitle: "Difusor de Aromas Elétrico Ultrassônico <br>R$52,90</br>",
+        cardText:
+          "Iluminação ambiente com 7 cores permitindo também ser usado como abajur. O difusor auxilia em aromaterapia e cromoterapia, proporcionando uma agradável sensação de bem estar e relaxamento.",
+        button: "https://pag.ae/7YYnaqVsG",
+      },
+
+      {
+        imagem: "ASPIRADOR.png",
+        cardTitle: "Aspirador de Pó Vertical e Portátil de Mão<br>R$223,90</br>",
+        cardText: "WAP SILENT SPEED 1000W 2 em 1 Articulado Filtro Hepa Tecnologia Cyclone 127V",
+        button: "https://pag.ae/7YYbBsJhJ",
+      },
+      {
+        imagem: "XICARAS.jpg",
+        cardTitle: "Jogo 6 Xícaras Cerâmica Caneca Café Expresso Coloridas Com Suporte 50ml <br>R$40,78</br>",
+        cardText: "Design: Coloridas <br>Material: Cerâmica e Metal <br>Itens: 6 Xícaras <br>1 Suporte Capacidade: 50ml",
+        button: "https://pag.ae/7YYpK5vKs",
+      },
+      {
+        imagem: "JOGO 3 TRAVESSA.jpg",
+        cardTitle: "Jogo 3 Travessa Filetada<br>R$93,90</br>",
+        cardText:
+          "Capacidade: 600ml<br>Largura: 20,2cm<br>Altura: 3,9cm<br>Comprimento: 17,9cm<br>Peso: 385g<br>2° Capacidade: 1,3 litros<br>Largura: 25,7cm<br>Altura: 4,7cm<br>Comprimento: 22,9cm<br>Peso: 664g<br>3° Capacidade: 1,6 litros<br>Largura: 28,2cm<br>Altura: 4,7cm<br>Comprimento: 25,4cm<br>Peso: 848g",
+        button: "https://pag.ae/7YYdXfAKs",
+      },
+      {
+        imagem: "CLIMATIZADOR PORTATILedit.jpg",
+        cardTitle: "Climatizador Compacto Smart 3 Elgin Branco 110.0 <br>R$279,00</br>",
+        cardText:
+          "Compacto, leve e fácil de transportar.<br> Possui ionizador para purificar o ambiente.Reservatório de água de 3,5 Litros. <br>3 Níveis de ventilação. <br>Rodizio (Rodinhas) para facilitar o transporte",
+        button: "https://pag.ae/7YYpETqw1",
+      },
+    ];
+    listaProdutos.forEach((prod) => {
+      let cardTitle = document.createElement("h5");
+      cardTitle.className = "card-title";
+      cardTitle.innerHTML = prod.cardTitle;
+
+      let cardText = document.createElement("p");
+      cardText.className = "card-text";
+      cardText.innerHTML = prod.cardText;
+      let button = document.createElement("a");
+      button.type = "button";
+      button.className = "btn btn-success mt-auto";
+      button.href = prod.button;
+      button.innerHTML = "COMPRAR";
+      let cardBody = document.createElement("div");
+      cardBody.className = "card-body d-flex flex-column";
+      cardBody.appendChild(cardTitle);
+      cardBody.appendChild(cardText);
+      cardBody.appendChild(button);
+      let image = document.createElement("img");
+      image.src = "./presentes/" + prod.imagem;
+      image.className = "card-img-top";
+      let card = document.createElement("div");
+      card.className = "card";
+      card.style.width = "18rem";
+      card.style.margin = "20px";
+      card.appendChild(image);
+      card.appendChild(cardBody);
+      document.getElementById("Produtos").appendChild(card);
+    });
+  </script>
+</html>

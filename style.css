@@ -1,0 +1,10 @@
+.dropdown-menu {
+    background-color: rgb(180, 180, 180);
+    min-width: auto;
+  }
+  .dropdown-item:hover {
+    background-color: rgb(112, 112, 112);
+  }
+  .dropdown{
+    position: fixed; top: 0px; z-index: 1;
+  }
