@@ -1,10 +1,42 @@
-.dropdown-menu {
-    background-color: rgb(180, 180, 180);
-    min-width: auto;
-  }
-  .dropdown-item:hover {
-    background-color: rgb(112, 112, 112);
-  }
-  .dropdown{
-    position: fixed; top: 0px; z-index: 1;
-  }
+body,
+html {
+  height: 100%;
+  margin: 0;  
+}
+
+.presentes {
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+}
+.animate__animated.animate__backInRight {
+  --animate-duration: 5s;
+}
+.animate__animated.animate__pulse {
+  --animate-duration: 1s;
+}
+.presentes>a{  
+  color: white;
+  font-size: 23px;
+  font-family: "Courier New", Courier, monospace;
+}
+.img {
+  background-image: url("fotos/TVM_6671edit.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.img > h1 {
+  text-align: center;
+  padding-top: 11em;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+}
+.topo_presentes {
+  position: sticky;
+  top: 0px;
+  background-color: white;
+  z-index: 1;
+  font-family: "Courier New", Courier, monospace;
+}
